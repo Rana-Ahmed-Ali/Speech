@@ -10,6 +10,6 @@ call .\venv\Scripts\activate
 
 REM Run live transcription
 REM Default uses medium model. You can also specify --model small for lower latency.
-python live_transcribe.py %*
+".\venv\Scripts\python.exe" live_transcribe.py %*
 
 pause

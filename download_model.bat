@@ -24,8 +24,8 @@ if "%CHOICE%"=="2" (
 )
 
 echo.
-call .\venv\Scripts\activate
-python download_model.py %MODEL%
+call .\venv\Scripts\activate.bat
+".\venv\Scripts\python.exe" download_model.py %MODEL%
 
 echo.
 echo =======================================================

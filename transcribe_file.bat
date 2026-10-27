@@ -15,6 +15,6 @@ if "%~1"=="" (
 )
 
 call .\venv\Scripts\activate
-python transcribe_file.py "%AUDIO_FILE%" %2 %3 %4 %5
+".\venv\Scripts\python.exe" transcribe_file.py "%AUDIO_FILE%" %2 %3 %4 %5
 
 pause

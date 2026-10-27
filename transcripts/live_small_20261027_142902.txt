@@ -1,0 +1,26 @@
+=== Session started at 2026-10-27 14:29:07 ===
+Model: small | Language: None
+
+[14:29:20] (hi) Calibrating the mic now. Please test. Yeh Urdu bhe kaam karta hai yeh nahi?
+[14:29:33] (hi) Yeh to chha kaam bhe rai.
+[14:29:43] (en) Karna hai.
+[14:29:58] (en) Open calculator.
+[14:30:06] (en) We use Punjab, computer, college, office.
+[14:30:18] (hi) We use mixed words like meeting, project, theek hai.
+[14:30:26] (hi) Yeh boho slow recording kartha hai.
+[14:30:41] (hi) P.S. Code, open karo ek navigation bar ki coding likh kre dikhaw.
+[14:30:54] (hi) बबकी क्या काम पूरा होगया?
+[14:31:03] (hi) Pakki, kya kar peyo?
+[14:31:32] (hi) Na ruto ka neya version aagaya babchi.
+[14:31:52] (en) Add live transcription log from media model session and comment it.
+[14:32:05] (hi) Urdu sahi nahi detectarte, lekin English very good detection.
+[14:32:30] (en) What is there was an error with your authentication to log in click here ask anything at the rate to mention forward slash for actions 793.8 flash medium.
+[14:34:02] (en) Could you just give me half an hour, then I'll be back here soon.
+[14:35:17] (en) What is the difference between patriotism and anything else?
+[14:47:57] (en) We use mixed words like meeting, project, theek hai, office, bilkul, laptop, computer, internet, call karna, message bhejna, shukriya.
+[14:48:53] (en) Thank you.
+[14:49:05] (en) Sorry, I'm not serious.
+[14:49:13] (nn) We use mixed words like meeting, project, theek hai, office, bilkul, laptop, internet, call karna, message bhejna, shukriya.
+[14:49:30] (en) We put that in college.
+
+=== Session stopped at 2026-10-27 14:49:37 ===
