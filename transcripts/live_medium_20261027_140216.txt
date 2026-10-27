@@ -1,0 +1,12 @@
+=== Session started at 2026-10-27 14:02:25 ===
+Model: medium | Language: None
+
+[14:02:59] (en) I am speaking.
+[14:03:13] (ar) Helo
+[14:03:27] (hi) Main Urdu bol rha hu.
+[14:03:39] (en) I am talking in Urdu Zaban mein.
+[14:04:02] (hi) Yeh toh sahi se kaam kar raha hai.
+[14:04:23] (ur) حضرت محمد صلی اللہ علیہ وسلم اللہ تعالیٰ کے آخری نبی ہیں
+[14:04:55] (hi) Kya yeh bilkul theek hai?
+
+=== Session stopped at 2026-10-27 14:05:00 ===
