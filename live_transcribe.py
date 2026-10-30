@@ -21,11 +21,23 @@ colorama.init(autoreset=True)
 def list_audio_devices():
     """Print all available input devices."""
     print(f"\n{Fore.CYAN}=== Available Audio Input Devices ==={Style.RESET_ALL}")
-    devices = sd.query_devices()
-    for idx, dev in enumerate(devices):
-        if dev.get("max_input_channels", 0) > 0:
-            default_marker = " [DEFAULT]" if idx == sd.default.device[0] else ""
-            print(f"[{idx}] {dev['name']} ({dev['hostapi']}){default_marker}")
+    try:
+        devices = sd.query_devices()
+        try:
+            default_in = sd.default.device[0]
+        except Exception:
+            default_in = None
+        
+        found = False
+        for idx, dev in enumerate(devices):
+            if dev.get("max_input_channels", 0) > 0:
+                found = True
+                default_marker = " [DEFAULT]" if default_in is not None and idx == default_in and default_in >= 0 else ""
+                print(f"[{idx}] {dev['name']} ({dev.get('hostapi', 'Unknown')}){default_marker}")
+        if not found:
+            print(f"{Fore.YELLOW}No input devices found. Please ensure your microphone is connected and recognized.{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}Error listing devices: {e}{Style.RESET_ALL}")
     print()
 
 
@@ -86,6 +98,7 @@ def run_live_transcription(model_size: str, language: str = None, device_id: int
                 calibration_samples.append(np.sqrt(np.mean(chunk.flatten() ** 2)))
     except Exception as e:
         print(f"{Fore.RED}Audio device error: {e}{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}Tip: Use --list-devices to view input device IDs, then specify --device <id>.{Style.RESET_ALL}")
         return
 
     ambient_energy = np.mean(calibration_samples) if calibration_samples else 0.001

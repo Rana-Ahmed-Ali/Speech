@@ -14,6 +14,22 @@ BASE_DIR = Path(__file__).resolve().parent
 TRANSCRIPTS_DIR = BASE_DIR / "transcripts"
 TRANSCRIPTS_DIR.mkdir(exist_ok=True)
 
+# Compatibility fix: PyAV 14+ dropped 'metadata_errors' which faster-whisper passes
+try:
+    import av
+    _orig_av_open = av.open
+    def _safe_av_open(*args, **kwargs):
+        try:
+            return _orig_av_open(*args, **kwargs)
+        except TypeError as err:
+            if "metadata_errors" in str(err):
+                kwargs.pop("metadata_errors", None)
+                return _orig_av_open(*args, **kwargs)
+            raise
+    av.open = _safe_av_open
+except Exception:
+    pass
+
 # Whisper Model Configuration
 # Options: "tiny", "base", "small", "medium", "large-v3-turbo"
 # "medium" offers high accuracy for Urdu/English code-switching
@@ -24,7 +40,7 @@ DEFAULT_MODEL_SIZE = "medium"
 # Hardware / Inference Configuration
 DEVICE = "cpu"
 COMPUTE_TYPE = "int8"   # Fast INT8 quantized inference via CTranslate2
-CPU_THREADS = 4         # Match physical cores of i5-6500
+CPU_THREADS = int(os.environ.get("WHISPER_THREADS", 4))  # Match physical cores (override via WHISPER_THREADS env var)
 
 # Mixed Urdu-English Bilingual Prompt Priming
 # Priming the decoder with both Urdu and English vocabulary guides Whisper
